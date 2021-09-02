@@ -1,0 +1,57 @@
+{% extends "hotel/base.html" %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<br>
+   <h2>Welcome {{user.username}}</h2><br>
+   <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+         <div class="well well-sm">
+           <div class="row">
+              <div class="col-sm-6 col-md-4">
+               <img src="{{ user.profile.image.url }}" alt=""
+               class="image-rounded img-responsive"/>
+              </div>
+              <div class="col-sm-6 col-md-8">
+                 <h4>{{ user.username }}</h4>
+              <p>
+              <i class="glyphicon glyphicon-envelope"></i>
+                   {{ user.email }}<br />
+              </p>
+              
+             </div>
+            </div>
+            </div>
+           </div>
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+         <fieldset class="form-group">
+           <legend>Profile Info</legend>
+           {{ u_form|crispy }}
+           {{ p_form|crispy }}
+         </fieldset>
+      <div class="form-group">
+          <button type="submit">Update</button>
+      </div>
+     </form>
+       
+       <div id="navbar" class="navbar-collapse collapse">
+         {% if user.is_authenticated %}
+           <div class="container">
+               <p><a class="btn btn-primary btn-lg" href="{% url 'bookings' %}" role="button">MyBookings &raquo;</a></p>
+          </div>
+         {% else %}
+            <form class="navbar-form navbar-right" role="form">
+            <a class="btn btn-success" href="{% url 'login' %}" role="button">Sign in</a>
+            <a class="btn btn-success" href="{% url 'registration' %}" role="button">Register</a>
+          </form>
+         {% endif %}
+        </div><!--/.navbar-collapse -->
+
+{% endblock content %}
+
+{% block footer %}
+{% endblock %}
+
