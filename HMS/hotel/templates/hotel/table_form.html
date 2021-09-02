@@ -1,0 +1,16 @@
+{% extends "hotel/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+   <div class="container">
+       <form method="POST">
+          {% csrf_token %}<br>
+          <fieldset>
+              <legend>Book Table</legend>
+              {{ form|crispy }}
+          </fieldset><br>
+          <div>
+             <button type="submit">Book</button>
+          </div>
+       </form>
+   </div>
+{% endblock content %}

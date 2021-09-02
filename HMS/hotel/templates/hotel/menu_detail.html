@@ -1,0 +1,23 @@
+{% extends "hotel/base.html" %}
+
+{% block content %}
+<div class="container">
+    <article>
+       <div class="media-body">
+       <div class="list-group">
+         <a href="#"></a>
+         <h2>{{ object.menu }}</h2><br>
+         
+         
+       </div>
+       
+       </div>
+       {% if object.user == user %}
+          <div>
+             <a class="btn btn-default " href="#">Update</a>
+             <a class="btn btn-default " href="#">Delete</a>
+          </div>
+       {% endif %} 
+    </article>
+</div>
+{% endblock %}

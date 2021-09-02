@@ -1,0 +1,24 @@
+{% extends "hotel/base.html" %}
+
+{% block content %}
+<div class="container">
+    <article>
+       <div class="media-body">
+       <div class="list-group">
+         <a href="#">RoomNum{{ object.roomnum }}</a>
+         <h1>{{ object.roomtype }}</small><br>
+         <small>{{ object.check_in }}</small><br>
+         <small>{{ object.check_out }}</small><br>
+
+       </div>
+       
+       </div>
+       {% if object.user == user %}
+          <div>
+             <a class="btn btn-default " href="{% url 'room-update' object.id %}">Update</a>
+             <a class="btn btn-default " href="{% url 'room-delete' object.id %}">Delete</a>
+          </div>
+       {% endif %} 
+    </article>
+</div>
+{% endblock %}

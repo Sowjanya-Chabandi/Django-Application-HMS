@@ -1,0 +1,22 @@
+{% extends "hotel/base.html" %}
+
+{% block content %}
+<div class="container">
+    <article>
+       <div class="media-body">
+       <div class="list-group">
+         <a href="#">TableNum{{ object.tablenum }}</a><br>
+         <small>{{ object.check_in }}</small>
+       </div>
+       
+     
+       </div>
+       {% if object.author == user %}
+          <div>
+             <a class="btn btn-default " href="{% url 'table-update' object.id %}">Update</a>
+             <a class="btn btn-default " href="{% url 'table-delete' object.id %}">Delete</a>
+          </div>
+       {% endif %} 
+    </article>
+</div>
+{% endblock %}

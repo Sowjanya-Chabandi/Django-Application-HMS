@@ -1,0 +1,35 @@
+{% extends "hotel/base.html" %}
+
+{% block title %}
+
+Menu
+
+{% endblock %}
+
+{% block content %}
+
+<section class="container">
+   {% for i in text2 %}
+   <div class="list-group">
+  <article>
+    <div class="media-body">
+    <div class="list-group">
+    <a href="#">{{i.menutype}}</a>
+    <small>{{i.menu}}</small>
+    </div>
+    
+    <h2><a href="{% url 'menu-detail' i.id %}">{{i.menu}}</a></h2>
+    <p>{{i.menutype}}</p>
+    </div>
+    </article>
+    </div>
+   {% endfor %}
+</section>
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

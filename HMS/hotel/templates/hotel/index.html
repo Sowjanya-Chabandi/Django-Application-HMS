@@ -1,0 +1,44 @@
+{% extends "hotel/base.html" %}
+
+{% block title %}
+
+Welcome
+
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+      <div class="container">
+        <h1>Hotel Booking</h1>
+        <p>Book a cheap and luxury room</p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+   {% if user.is_authenticated %}
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Rooms</h2>
+          
+          <p><a class="btn btn-default" href="{% url 'rooms' %}" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Tables</h2>
+          
+          <p><a class="btn btn-default" href="{% url 'tables' %}" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Menu</h2>
+          
+          <p><a class="btn btn-default" href="{% url 'menu' %}" role="button">View details &raquo;</a></p>
+        </div>
+       
+      </div>
+     {% else %}
+        <div class="container">
+        <h4>Create an account to view availabilities</h4>
+     {% endif %}
+      <hr>
+
+{% endblock %}
